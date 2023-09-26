@@ -1,0 +1,41 @@
+class Node:
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+class stack :
+    def __init__(self):
+        self.top = None
+        
+    def isempty(self):
+        return self.top == None
+        
+    def push(self,value):
+        new_node = Node(value)
+        new_node.next = self.top
+        self.top = new_node
+    
+    def traverse(self):
+        curr = self.top
+        while curr != None:
+            print(curr.data)
+            curr = curr.next
+            
+    def peek(self):
+        if self.isempty == True:
+            return 'Empty Stack!'
+        else:
+            return self.top.data
+    def pop(self):
+        if self.isempty == True:
+            return 'Empty Stack!'
+        temp_val = self.top.data
+        self.top = self.top.next
+        return temp_val
+    
+    def size(self):
+        curr = self.top
+        count = 0
+        while curr != None:
+            count = count+1 
+            curr = curr.next
+        return count
